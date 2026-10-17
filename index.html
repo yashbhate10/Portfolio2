@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Yash Prashant Bhate - Computer Science undergraduate at Walchand CoE, Competitive Programmer (400+ DSA Solved), and Software Engineer." />
+  <meta name="keywords" content="Yash Bhate, Portfolio, Competitive Programming, Software Engineer, React, Python, Spring Boot, Computer Vision" />
+  <meta name="author" content="Yash Prashant Bhate" />
+  
+  <title>Yash Prashant Bhate | Software Engineer & Problem Solver</title>
+
+  <!-- Typography: Inter + Plus Jakarta Sans + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Subtle Ambient Background Lights -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
+
+  <!-- FIXED NAVIGATION BAR -->
+  <header class="header" id="header">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Yash Bhate Portfolio Home">
+        <span class="logo-mark">YB</span>
+        <span class="logo-text">yash<span class="dot">.</span>bhate</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#experience" class="nav-link">Academics & DSA</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme" title="Switch Theme">
+          <i class="fa-solid fa-moon moon-icon"></i>
+          <i class="fa-solid fa-sun sun-icon"></i>
+        </button>
+
+        <!-- Social Quick Links in Header -->
+        <a href="https://github.com/yashbhate10" target="_blank" rel="noopener noreferrer" class="nav-icon-link" aria-label="GitHub Profile" title="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/yashbhate10/" target="_blank" rel="noopener noreferrer" class="nav-icon-link" aria-label="LinkedIn Profile" title="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <a href="#contact" class="btn btn-primary-compact">Get In Touch</a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        
+        <div class="hero-content">
+          <div class="availability-badge">
+            <span class="pulse-indicator"></span>
+            <span>Walchand College of Engineering, Sangli &bull; CSE '28</span>
+          </div>
+
+          <h1 class="hero-name">
+            Yash Prashant Bhate
+          </h1>
+
+          <div class="hero-role-wrapper">
+            <span class="hero-prefix">I build </span>
+            <span class="typing-target" id="typing-text"></span>
+            <span class="terminal-cursor">|</span>
+          </div>
+
+          <p class="hero-statement">
+            Computer Science engineer passionate about <strong>competitive programming</strong> and engineering impactful software. Solved <strong>400+ DSA problems</strong> across platforms. I love exploring fresh ideas and writing clean, reliable code that solves real-world challenges.
+          </p>
+
+          <!-- Core Credential Quick Strip -->
+          <div class="hero-highlights-strip">
+            <div class="highlight-chip">
+              <i class="fa-solid fa-terminal"></i>
+              <span><strong>400+ DSA</strong> Solved</span>
+            </div>
+            <div class="highlight-chip">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <span><strong>8.74 CGPA</strong> @ WCE Sangli</span>
+            </div>
+            <div class="highlight-chip">
+              <i class="fa-solid fa-trophy"></i>
+              <span><strong>2x Finalist</strong> Hackathons</span>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="hero-action-buttons">
+            <a href="#projects" class="btn btn-primary">
+              <span>Explore Projects</span>
+              <i class="fa-solid fa-arrow-down"></i>
+            </a>
+            <a href="https://github.com/yashbhate10" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub Repos</span>
+            </a>
+            <a href="https://www.linkedin.com/in/yashbhate10/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <i class="fa-brands fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side: Clean Terminal / Code Card -->
+        <div class="hero-code-wrapper">
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+              <div class="terminal-title">yash@wce-sangli:~</div>
+              <div class="terminal-badge">bash</div>
+            </div>
+            <div class="terminal-body">
+              <p class="term-line"><span class="term-prompt">yash@dev:~$</span> cat profile.json</p>
+              <pre class="term-code"><code>{
+  <span class="json-key">"name"</span>: <span class="json-str">"Yash Prashant Bhate"</span>,
+  <span class="json-key">"institution"</span>: <span class="json-str">"Walchand CoE, Sangli"</span>,
+  <span class="json-key">"currentDegree"</span>: <span class="json-str">"B.Tech CSE (2025-2028)"</span>,
+  <span class="json-key">"gpa"</span>: <span class="json-num">8.74</span>,
+  <span class="json-key">"diplomaPercentage"</span>: <span class="json-num">95.18</span>,
+  <span class="json-key">"competitiveProgramming"</span>: {
+    <span class="json-key">"dsaSolved"</span>: <span class="json-str">"400+ Problems"</span>,
+    <span class="json-key">"platforms"</span>: [<span class="json-str">"LeetCode"</span>, <span class="json-str">"Codeforces"</span>, <span class="json-str">"GFG"</span>]
+  },
+  <span class="json-key">"coreInterests"</span>: [
+    <span class="json-str">"Competitive Programming & Algorithmic Problem Solving"</span>,
+    <span class="json-str">"Building Real-World Software Products"</span>,
+    <span class="json-str">"Full-Stack Web & Computer Vision"</span>
+  ]
+}</code></pre>
+              <p class="term-line"><span class="term-prompt">yash@dev:~$</span> <span class="term-active-cmd">status --ready-to-collaborate</span> <span class="term-blink">_</span></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-heading-block">
+          <span class="badge-subtitle">Overview</span>
+          <h2 class="section-title">About Me & Philosophy</h2>
+          <div class="accent-bar"></div>
+        </div>
+
+        <div class="about-grid-layout">
+          <div class="about-narrative-card">
+            <h3>Turning Analytical Logic into Practical Software</h3>
+            <p>
+              I am a Computer Science undergraduate at <strong>Walchand College of Engineering, Sangli</strong>, with a genuine enthusiasm for <strong>competitive programming</strong> and algorithmic problem solving. Having cracked over <strong>400+ DSA problems</strong> across platforms like LeetCode, Codeforces, and GeeksforGeeks, I thrive on writing optimized code with clean time and space complexities.
+            </p>
+            <p>
+              Beyond the leaderboard, my true drive is <strong>turning ideas into tangible software</strong>. Whether it's architecting a computer-vision surveillance engine with YOLOv11 and ByteTrack, building real-time sign language accessibility tools, or engineering responsive full-stack applications with Spring Boot and React, I love the end-to-end craft of software development.
+            </p>
+            <p>
+              I bring a disciplined academic track record (<strong>95.18% in Diploma in IT</strong>, <strong>8.74/10 CGPA in B.Tech</strong>) paired with a curious, builder mindset.
+            </p>
+          </div>
+
+          <div class="about-stats-column">
+            <div class="stat-box">
+              <div class="stat-box-icon"><i class="fa-solid fa-code"></i></div>
+              <div class="stat-box-content">
+                <span class="stat-val">400+</span>
+                <span class="stat-name">DSA Problems Solved</span>
+                <span class="stat-sub">LeetCode, Codeforces & GFG</span>
+              </div>
+            </div>
+
+            <div class="stat-box">
+              <div class="stat-box-icon"><i class="fa-solid fa-trophy"></i></div>
+              <div class="stat-box-content">
+                <span class="stat-val">2x</span>
+                <span class="stat-name">Hackathon Finalist</span>
+                <span class="stat-sub">Smart India Hackathon & WCE ACM</span>
+              </div>
+            </div>
+
+            <div class="stat-box">
+              <div class="stat-box-icon"><i class="fa-solid fa-award"></i></div>
+              <div class="stat-box-content">
+                <span class="stat-val">95.18%</span>
+                <span class="stat-name">Diploma in IT</span>
+                <span class="stat-sub">Govt. Polytechnic Kolhapur</span>
+              </div>
+            </div>
+
+            <div class="stat-box">
+              <div class="stat-box-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+              <div class="stat-box-content">
+                <span class="stat-val">8.74</span>
+                <span class="stat-name">Current B.Tech CGPA</span>
+                <span class="stat-sub">Walchand College of Eng., Sangli</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-heading-block">
+          <span class="badge-subtitle">Portfolio</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="accent-bar"></div>
+          <p class="section-caption">High-impact software applications engineered from scratch with clean architectures and real-world utility.</p>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- PROJECT 1: AI-Based Suspicious Activity Detection System -->
+          <article class="project-card">
+            <div class="project-header">
+              <div class="project-type-pill pill-vision">
+                <i class="fa-solid fa-shield-halved"></i> Computer Vision & Behavior Analytics
+              </div>
+              <a href="https://github.com/yashbhate10/SuspiciousActivityDetection" target="_blank" rel="noopener noreferrer" class="repo-link" title="View Source on GitHub">
+                <i class="fa-brands fa-github"></i>
+                <span>yashbhate10/SuspiciousActivityDetection</span>
+              </a>
+            </div>
+
+            <h3 class="project-name">AI-Based Suspicious Activity Detection System</h3>
+            <p class="project-description">
+              An end-to-end intelligent video surveillance system designed to analyze webcam, CCTV, and pre-recorded video feeds in real-time. Employs modern object detection, persistent tracking, and temporal behavioral heuristics to automatically flag anomalous security events.
+            </p>
+
+            <div class="project-features">
+              <div class="feature-bullet">
+                <i class="fa-solid fa-check"></i>
+                <div><strong>YOLOv11 & ByteTrack:</strong> Integrated YOLOv11 for state-of-the-art multi-class object detection alongside ByteTrack for resilient, persistent tracking across occlusions.</div>
+              </div>
+              <div class="feature-bullet">
+                <i class="fa-solid fa-check"></i>
+                <div><strong>Temporal Behavior Engine:</strong> Engineered detection algorithms to identify loitering, erratic movement, rapid approach vectors, abandoned unattended objects, and crowd surges.</div>
+              </div>
+              <div class="feature-bullet">
+                <i class="fa-solid fa-check"></i>
+                <div><strong>Crime-Anomaly Classifier & Verification:</strong> Built confidence scoring and multi-consecutive-frame checks to drastically minimize false positives.</div>
+              </div>
+              <div class="feature-bullet">
+                <i class="fa-solid fa-check"></i>
+                <div><strong>Full-Stack Dashboard:</strong> Developed a FastAPI backend streaming video frames and incident alerts to a React interface with evidence snapshots, event audit logs, MongoDB storage, and local JSON fallback.</div>
+              </div>
+            </div>
+
+            <div class="project-tags">
+              <span>Python</span>
+              <span>OpenCV</span>
+              <span>YOLOv11</span>
+              <span>ByteTrack</span>
+              <span>PyTorch</span>
+              <span>FastAPI</span>
+              <span>React</span>
+              <span>MongoDB</span>
+              <span>Docker</span>
+            </div>
+
+            <div class="project-card-footer">
+              <a href="https://github.com/yashbhate10/SuspiciousActivityDetection" target="_blank" rel="noopener noreferrer" class="btn btn-outline-clean">
+                <i class="fa-brands fa-github"></i>
+                <span>Explore Repository</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: Enterprise Knowledge Platform -->
+          <article class="project-card">
+            <div class="project-header">
+              <div class="project-type-pill pill-backend">
+                <i class="fa-solid fa-network-wired"></i> Full-Stack & Intelligent Search
+              </div>
+              <a href="https://github.com/yashbhate10/Enterprise-AI-Knowledge-Hub" target="_blank" rel="noopener noreferrer" class="repo-link" title="View Source on GitHub">
+                <i class="fa-brands fa-github"></i>
+                <span>yashbhate10/Enterprise-AI-Knowledge-Hub</span>
+              </a>
+            </div>
+
+            <h3 class="project-name">Enterprise Knowledge Platform</h3>
+            <p class="project-description">
+              An enterprise document search engine designed for organizational knowledge discovery. Combines a resilient Spring Boot backend with a dedicated semantic retrieval service for fast, context-aware information discovery over large document repositories.
+            </p>
+
+            <div class="project-features">
+              <div class="feature-bullet">
+                <i class="fa-solid fa-check"></i>
+                <div><strong>Scalable Architecture:</strong> Built using React and Java Spring Boot with clean RESTful endpoints for document lifecycle, role-based access control (RBAC), and search requests.</div>
+              </div>
+              <div class="feature-bullet">
+                <i class="fa-solid fa-check"></i>
+                <div><strong>FastAPI Semantic Microservice:</strong> Developed a Python/FastAPI microservice executing text embedding generation and vector similarity retrieval for accurate contextual queries.</div>
+              </div>
+              <div class="feature-bullet">
+                <i class="fa-solid fa-check"></i>
+                <div><strong>PostgreSQL & Dockerization:</strong> Designed normalized schemas for documents and audit logs with indexing; packaged all services via Docker Compose for easy deployment.</div>
+              </div>
+            </div>
+
+            <div class="project-tags">
+              <span>React.js</span>
+              <span>Java</span>
+              <span>Spring Boot</span>
+              <span>PostgreSQL</span>
+              <span>Python</span>
+              <span>FastAPI</span>
+              <span>Docker</span>
+              <span>Swagger/OpenAPI</span>
+            </div>
+
+            <div class="project-card-footer">
+              <a href="https://github.com/yashbhate10/Enterprise-AI-Knowledge-Hub" target="_blank" rel="noopener noreferrer" class="btn btn-outline-clean">
+                <i class="fa-brands fa-github"></i>
+                <span>Explore Repository</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: SignBridge -->
+          <article class="project-card">
+            <div class="project-header">
+              <div class="project-type-pill pill-ai">
+                <i class="fa-solid fa-hand"></i> Assistive Tech & Real-Time ML
+              </div>
+              <a href="https://github.com/yashbhate10/signBridge" target="_blank" rel="noopener noreferrer" class="repo-link" title="View Source on GitHub">
+                <i class="fa-brands fa-github"></i>
+                <span>yashbhate10/signBridge</span>
+              </a>
+            </div>
+
+            <h3 class="project-name">SignBridge — Sign Language Translator</h3>
+            <p class="project-description">
+              An accessible web platform providing real-time sign language gesture recognition to bridge communication barriers for individuals with hearing and speech impairments.
+            </p>
+
+            <div class="project-features">
+              <div class="feature-bullet">
+                <i class="fa-solid fa-check"></i>
+                <div><strong>Computer Vision:</strong> Extracted 21 3D hand landmarks in real-time from video streams using MediaPipe and OpenCV.</div>
+              </div>
+              <div class="feature-bullet">
+                <i class="fa-solid fa-check"></i>
+                <div><strong>Gesture Classification:</strong> Trained Random Forest and neural network models across static and dynamic gestures, achieving 75%+ recognition accuracy.</div>
+              </div>
+              <div class="feature-bullet">
+                <i class="fa-solid fa-check"></i>
+                <div><strong>Full-Stack Integration:</strong> Streamlined communication between the React/Node.js web app and the Python ML inference service for smooth interactive latency.</div>
+              </div>
+            </div>
+
+            <div class="project-tags">
+              <span>React.js</span>
+              <span>Node.js</span>
+              <span>Express.js</span>
+              <span>Python</span>
+              <span>OpenCV</span>
+              <span>MediaPipe</span>
+              <span>scikit-learn</span>
+              <span>TensorFlow</span>
+            </div>
+
+            <div class="project-card-footer">
+              <a href="https://github.com/yashbhate10/signBridge" target="_blank" rel="noopener noreferrer" class="btn btn-outline-clean">
+                <i class="fa-brands fa-github"></i>
+                <span>Explore Repository</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: ParkIT -->
+          <article class="project-card">
+            <div class="project-header">
+              <div class="project-type-pill pill-mobile">
+                <i class="fa-brands fa-android"></i> Native Mobile Application
+              </div>
+              <a href="https://github.com/yashbhate10/Parkit" target="_blank" rel="noopener noreferrer" class="repo-link" title="View Source on GitHub">
+                <i class="fa-brands fa-github"></i>
+                <span>yashbhate10/Parkit</span>
+              </a>
+            </div>
+
+            <h3 class="project-name">ParkIT — Smart Parking Allotment App</h3>
+            <p class="project-description">
+              A native Android mobile application designed to alleviate urban parking congestion through automated real-time slot tracking, navigation, and reservation management.
+            </p>
+
+            <div class="project-features">
+              <div class="feature-bullet">
+                <i class="fa-solid fa-check"></i>
+                <div><strong>Native Android:</strong> Developed in Java using the Android SDK, integrating Google Maps API for real-time location mapping and turn-by-turn routing.</div>
+              </div>
+              <div class="feature-bullet">
+                <i class="fa-solid fa-check"></i>
+                <div><strong>Concurrency Control:</strong> Implemented atomic transactions and live snapshot listeners with Firebase Cloud Firestore to eliminate double bookings across concurrent motorists.</div>
+              </div>
+              <div class="feature-bullet">
+                <i class="fa-solid fa-check"></i>
+                <div><strong>Role-Based Portals:</strong> Provided secure dual access flows for user reservations and lot administrator management using Firebase Authentication.</div>
+              </div>
+            </div>
+
+            <div class="project-tags">
+              <span>Java</span>
+              <span>Android SDK</span>
+              <span>Firebase Firestore</span>
+              <span>Firebase Auth</span>
+              <span>Google Maps API</span>
+              <span>REST APIs</span>
+            </div>
+
+            <div class="project-card-footer">
+              <a href="https://github.com/yashbhate10/Parkit" target="_blank" rel="noopener noreferrer" class="btn btn-outline-clean">
+                <i class="fa-brands fa-github"></i>
+                <span>Explore Repository</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-heading-block">
+          <span class="badge-subtitle">Toolbox</span>
+          <h2 class="section-title">Technical Expertise</h2>
+          <div class="accent-bar"></div>
+          <p class="section-caption">Core languages, frameworks, and engineering tools I utilize to build software.</p>
+        </div>
+
+        <div class="skills-grid-layout">
+          <!-- Card 1: Languages -->
+          <div class="skill-category-card">
+            <div class="skill-cat-title">
+              <i class="fa-solid fa-code"></i>
+              <h3>Programming Languages</h3>
+            </div>
+            <div class="skill-pill-list">
+              <span class="skill-badge"><i class="fa-brands fa-java"></i> Java</span>
+              <span class="skill-badge"><i class="fa-brands fa-python"></i> Python</span>
+              <span class="skill-badge"><i class="fa-brands fa-js"></i> JavaScript</span>
+              <span class="skill-badge"><i class="fa-solid fa-database"></i> SQL</span>
+              <span class="skill-badge"><i class="fa-solid fa-terminal"></i> C++</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Backend & Web -->
+          <div class="skill-category-card">
+            <div class="skill-cat-title">
+              <i class="fa-solid fa-server"></i>
+              <h3>Backend Engineering</h3>
+            </div>
+            <div class="skill-pill-list">
+              <span class="skill-badge"><i class="fa-solid fa-leaf"></i> Spring Boot</span>
+              <span class="skill-badge"><i class="fa-brands fa-node-js"></i> Node.js</span>
+              <span class="skill-badge"><i class="fa-solid fa-bolt"></i> FastAPI</span>
+              <span class="skill-badge"><i class="fa-solid fa-network-wired"></i> Express.js</span>
+              <span class="skill-badge"><i class="fa-solid fa-flask"></i> Flask</span>
+              <span class="skill-badge"><i class="fa-solid fa-cloud"></i> REST APIs & Swagger</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Frontend & Mobile -->
+          <div class="skill-category-card">
+            <div class="skill-cat-title">
+              <i class="fa-solid fa-laptop-code"></i>
+              <h3>Frontend & Mobile</h3>
+            </div>
+            <div class="skill-pill-list">
+              <span class="skill-badge"><i class="fa-brands fa-react"></i> React.js</span>
+              <span class="skill-badge"><i class="fa-brands fa-html5"></i> HTML5</span>
+              <span class="skill-badge"><i class="fa-brands fa-css3-alt"></i> Modern CSS</span>
+              <span class="skill-badge"><i class="fa-brands fa-android"></i> Android SDK (Java)</span>
+              <span class="skill-badge"><i class="fa-solid fa-mobile-screen"></i> Responsive UI</span>
+            </div>
+          </div>
+
+          <!-- Card 4: AI & Computer Vision -->
+          <div class="skill-category-card">
+            <div class="skill-cat-title">
+              <i class="fa-solid fa-eye"></i>
+              <h3>Computer Vision & AI</h3>
+            </div>
+            <div class="skill-pill-list">
+              <span class="skill-badge"><i class="fa-solid fa-video"></i> OpenCV</span>
+              <span class="skill-badge"><i class="fa-solid fa-camera"></i> YOLOv11 & ByteTrack</span>
+              <span class="skill-badge"><i class="fa-solid fa-fire"></i> PyTorch</span>
+              <span class="skill-badge"><i class="fa-solid fa-hand"></i> MediaPipe</span>
+              <span class="skill-badge"><i class="fa-solid fa-chart-line"></i> scikit-learn</span>
+              <span class="skill-badge"><i class="fa-solid fa-microchip"></i> TensorFlow</span>
+            </div>
+          </div>
+
+          <!-- Card 5: Databases & Cloud -->
+          <div class="skill-category-card">
+            <div class="skill-cat-title">
+              <i class="fa-solid fa-database"></i>
+              <h3>Databases & Cloud</h3>
+            </div>
+            <div class="skill-pill-list">
+              <span class="skill-badge"><i class="fa-solid fa-database"></i> PostgreSQL</span>
+              <span class="skill-badge"><i class="fa-solid fa-table"></i> MySQL</span>
+              <span class="skill-badge"><i class="fa-solid fa-leaf"></i> MongoDB</span>
+              <span class="skill-badge"><i class="fa-solid fa-fire"></i> Firebase Firestore</span>
+              <span class="skill-badge"><i class="fa-solid fa-key"></i> Firebase Auth</span>
+            </div>
+          </div>
+
+          <!-- Card 6: Tools & Fundamentals -->
+          <div class="skill-category-card">
+            <div class="skill-cat-title">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+              <h3>Engineering Fundamentals</h3>
+            </div>
+            <div class="skill-pill-list">
+              <span class="skill-badge"><i class="fa-brands fa-docker"></i> Docker</span>
+              <span class="skill-badge"><i class="fa-brands fa-git-alt"></i> Git & GitHub</span>
+              <span class="skill-badge"><i class="fa-brands fa-linux"></i> Linux / Bash</span>
+              <span class="skill-badge"><i class="fa-solid fa-sitemap"></i> DSA & Algorithms</span>
+              <span class="skill-badge"><i class="fa-solid fa-cubes"></i> OOP & System Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACADEMICS, DSA & ACHIEVEMENTS -->
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        <div class="section-heading-block">
+          <span class="badge-subtitle">Milestones</span>
+          <h2 class="section-title">Education & Accolades</h2>
+          <div class="accent-bar"></div>
+        </div>
+
+        <div class="two-column-layout">
+          <!-- Left: Education -->
+          <div class="column-block">
+            <h3 class="block-title"><i class="fa-solid fa-graduation-cap"></i> Academic Background</h3>
+
+            <div class="timeline-tree">
+              <!-- Item 1 -->
+              <div class="timeline-node">
+                <div class="node-marker"></div>
+                <div class="node-card">
+                  <div class="node-date-row">
+                    <span class="node-date">2025 – 2028 (Pursuing)</span>
+                    <span class="node-grade badge-blue">GPA: 8.74 / 10</span>
+                  </div>
+                  <h4 class="node-title">B.Tech in Computer Science and Engineering</h4>
+                  <p class="node-institution">Walchand College of Engineering, Sangli</p>
+                  <p class="node-detail">Direct Second Year entry. Rigorous coursework in algorithms, operating systems, database management, and computer networks.</p>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="timeline-node">
+                <div class="node-marker"></div>
+                <div class="node-card">
+                  <div class="node-date-row">
+                    <span class="node-date">2022 – 2025</span>
+                    <span class="node-grade badge-green">95.18% Distinction</span>
+                  </div>
+                  <h4 class="node-title">Diploma in Information Technology</h4>
+                  <p class="node-institution">Government Polytechnic, Kolhapur</p>
+                  <p class="node-detail">Graduated with premier distinction honors and deep foundational training in programming and system fundamentals.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: DSA, Hackathons & Certifications -->
+          <div class="column-block">
+            <h3 class="block-title"><i class="fa-solid fa-medal"></i> DSA, Hackathons & Honors</h3>
+
+            <div class="accolade-cards-list">
+              <!-- DSA Card -->
+              <div class="accolade-item">
+                <div class="accolade-icon icon-code">
+                  <i class="fa-solid fa-terminal"></i>
+                </div>
+                <div class="accolade-details">
+                  <span class="accolade-sub">Problem Solving & Algorithms</span>
+                  <h4 class="accolade-heading">400+ Problems Solved Across Platforms</h4>
+                  <p class="accolade-info">
+                    Consistent problem-solving on LeetCode, Codeforces, and GeeksforGeeks. Proficient in dynamic programming, graph theory, trees, recursion, and greedy patterns.
+                  </p>
+                </div>
+              </div>
+
+              <!-- SIH Card -->
+              <div class="accolade-item">
+                <div class="accolade-icon icon-trophy">
+                  <i class="fa-solid fa-trophy"></i>
+                </div>
+                <div class="accolade-details">
+                  <span class="accolade-sub">Smart India Hackathon (SIH) 2025</span>
+                  <h4 class="accolade-heading">Internal Finalist</h4>
+                  <p class="accolade-info">
+                    Selected as internal college finalist among competitive teams, building practical solutions for national-level problem statements.
+                  </p>
+                </div>
+              </div>
+
+              <!-- WCE Hackathon Card -->
+              <div class="accolade-item">
+                <div class="accolade-icon icon-award">
+                  <i class="fa-solid fa-award"></i>
+                </div>
+                <div class="accolade-details">
+                  <span class="accolade-sub">WCE ACM Hackathon 2025</span>
+                  <h4 class="accolade-heading">Top 4 Finalist</h4>
+                  <p class="accolade-info">
+                    Ranked among top 4 finalists in intense 24-hour hackathon, designing and deploying end-to-end software under time constraints.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Certification Card -->
+              <div class="accolade-item">
+                <div class="accolade-icon icon-cert">
+                  <i class="fa-solid fa-certificate"></i>
+                </div>
+                <div class="accolade-details">
+                  <span class="accolade-sub">Duke University | Coursera</span>
+                  <h4 class="accolade-heading">Java Programming: Solving Problems with Software</h4>
+                  <p class="accolade-info">
+                    Accredited certification covering algorithmic decomposition, structured data parsing, and OOP principles in Java.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-heading-block">
+          <span class="badge-subtitle">Get In Touch</span>
+          <h2 class="section-title">Let's Connect & Collaborate</h2>
+          <div class="accent-bar"></div>
+          <p class="section-caption">Interested in discussing software engineering opportunities, collaborations, or problem solving? My inbox is always open.</p>
+        </div>
+
+        <div class="contact-card-container">
+          <div class="contact-intro">
+            <h3>Contact Information</h3>
+            <p>
+              I am actively seeking software engineering internships and collaborative software projects. Feel free to connect directly via LinkedIn or shoot me an email.
+            </p>
+
+            <div class="direct-contact-list">
+              <a href="mailto:yashbhate60@gmail.com" class="direct-item">
+                <div class="direct-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div>
+                  <span class="direct-label">Email</span>
+                  <span class="direct-val">yashbhate60@gmail.com</span>
+                </div>
+              </a>
+
+              <a href="tel:+917887944830" class="direct-item">
+                <div class="direct-icon"><i class="fa-solid fa-phone"></i></div>
+                <div>
+                  <span class="direct-label">Phone</span>
+                  <span class="direct-val">+91 7887944830</span>
+                </div>
+              </a>
+
+              <div class="direct-item">
+                <div class="direct-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                  <span class="direct-label">Location</span>
+                  <span class="direct-val">Kolhapur / Sangli, Maharashtra, India</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="direct-social-row">
+              <a href="https://www.linkedin.com/in/yashbhate10/" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="LinkedIn Profile" title="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com/yashbhate10" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="GitHub Profile" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="mailto:yashbhate60@gmail.com" class="social-circle" aria-label="Send Email" title="Email">
+                <i class="fa-solid fa-paper-plane"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-side">
+            <form id="contact-form" class="clean-form" onsubmit="handleFormSubmit(event)">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="name">Your Name</label>
+                  <input type="text" id="name" name="name" placeholder="John Doe" required />
+                </div>
+                <div class="form-field">
+                  <label for="email">Your Email</label>
+                  <input type="email" id="email" name="email" placeholder="john@example.com" required />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Project collaboration / Internship" required />
+              </div>
+
+              <div class="form-field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Hi Yash, I came across your portfolio and wanted to reach out regarding..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full">
+                <span>Send Message</span>
+                <i class="fa-regular fa-paper-plane"></i>
+              </button>
+              <div id="form-feedback" class="form-alert"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PROFESSIONAL FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <a href="#hero" class="brand-logo">
+          <span class="logo-mark">YB</span>
+          <span class="logo-text">yash<span class="dot">.</span>bhate</span>
+        </a>
+        <p class="footer-motto">Building innovative software & solving hard problems.</p>
+      </div>
+
+      <div class="footer-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Academics</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/yashbhate10" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/yashbhate10/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+
+      <div class="footer-copy">
+        <p>&copy; <span id="year"></span> Yash Prashant Bhate. Built with clean code & responsive design.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to Top" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
