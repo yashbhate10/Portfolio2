@@ -478,16 +478,17 @@ a {
 
 .hero-profile-row {
   display: flex;
-  align-items: center;
-  gap: 1.6rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.4rem;
   margin-bottom: 0.8rem;
-  flex-wrap: wrap;
 }
 
 .hero-avatar-frame {
   position: relative;
-  width: 136px;
-  height: 136px;
+  width: 192px;
+  height: 192px;
+  align-self: center;
   border-radius: 50%;
   padding: 3px;
   background: linear-gradient(135deg, var(--accent), var(--accent-cyan));
