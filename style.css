@@ -486,8 +486,8 @@ a {
 
 .hero-avatar-frame {
   position: relative;
-  width: 96px;
-  height: 96px;
+  width: 136px;
+  height: 136px;
   border-radius: 50%;
   padding: 3px;
   background: linear-gradient(135deg, var(--accent), var(--accent-cyan));
@@ -1246,8 +1246,8 @@ a {
 }
 
 .contact-avatar-circle {
-  width: 72px;
-  height: 72px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   padding: 2.5px;
   background: linear-gradient(135deg, var(--accent), var(--accent-cyan));
