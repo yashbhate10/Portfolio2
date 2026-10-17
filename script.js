@@ -1,210 +1,242 @@
 /**
- * Portfolio Interactive Scripts
- * Author: Yash Prashant Bhate
- * Includes: Dark/Light Mode with localStorage persistence, Mobile Menu,
- * Typing Animation, Active Nav Link Tracking, Smooth Scroll, and Form Handling.
+ * Yash Bhate Portfolio - Interactive Scripts & Animations
+ * Features:
+ * - 3D Card Tilt Effect on Mouse Move
+ * - Custom Dual-Ring Cursor with Magnetic Button Snapping
+ * - Cursor Radial Glow tracking
+ * - Intersection Observer Reveal-on-Scroll
+ * - Dark & Light Mode Theme persistence
+ * - Mobile Navigation Drawer
+ * - Smooth Typing Animation with dynamic human pacing
+ * - Contact Form Handler
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Theme Management (Dark & Light Mode)
   initTheme();
-
-  // 2. Mobile Navigation Toggle
-  initMobileNav();
-
-  // 3. Typing Text Animation in Hero
+  initCustomCursor();
+  initTiltEffect();
+  initScrollReveal();
   initTypingEffect();
-
-  // 4. Scroll Header & Active Navigation Highlighting
-  initScrollEffects();
-
-  // 5. Back to Top Button
+  initMobileNav();
   initBackToTop();
 
-  // 6. Dynamic Current Year in Footer
   const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
 
 /**
- * Handles Dark/Light Mode toggle and respects system preference & localStorage
+ * 1. Dark & Light Theme Toggle with LocalStorage
  */
 function initTheme() {
-  const themeToggle = document.getElementById('theme-toggle');
-  const rootHtml = document.documentElement;
+  const toggleBtn = document.getElementById('theme-toggle');
+  const root = document.documentElement;
 
-  // Retrieve saved preference or use system preference
-  const savedTheme = localStorage.getItem('yash_portfolio_theme');
+  const savedTheme = localStorage.getItem('yash_theme_pref');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const currentTheme = savedTheme || (prefersDark ? 'dark' : 'light');
 
-  let currentTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-  rootHtml.setAttribute('data-theme', currentTheme);
+  root.setAttribute('data-theme', currentTheme);
 
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      currentTheme = rootHtml.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      rootHtml.setAttribute('data-theme', currentTheme);
-      localStorage.setItem('yash_portfolio_theme', currentTheme);
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const active = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', active);
+      localStorage.setItem('yash_theme_pref', active);
     });
   }
+}
 
-  // Listen to OS theme changes if user hasn't explicitly set preference
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!localStorage.getItem('yash_portfolio_theme')) {
-      const newTheme = e.matches ? 'dark' : 'light';
-      rootHtml.setAttribute('data-theme', newTheme);
+/**
+ * 2. Custom Cursor & Glow Follower (Desktop)
+ */
+function initCustomCursor() {
+  const cursorDot = document.getElementById('cursor-dot');
+  const cursorOutline = document.getElementById('cursor-outline');
+  const cursorGlow = document.getElementById('cursor-glow');
+
+  if (!cursorDot || !cursorOutline) return;
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let outlineX = mouseX;
+  let outlineY = mouseY;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    cursorDot.style.left = `${mouseX}px`;
+    cursorDot.style.top = `${mouseY}px`;
+
+    if (cursorGlow) {
+      cursorGlow.style.left = `${mouseX}px`;
+      cursorGlow.style.top = `${mouseY}px`;
     }
+  });
+
+  // Smooth trailing outline animation loop
+  function animateOutline() {
+    outlineX += (mouseX - outlineX) * 0.18;
+    outlineY += (mouseY - outlineY) * 0.18;
+
+    cursorOutline.style.left = `${outlineX}px`;
+    cursorOutline.style.top = `${outlineY}px`;
+
+    requestAnimationFrame(animateOutline);
+  }
+  animateOutline();
+
+  // Hover detection for interactive links & buttons
+  const interactives = document.querySelectorAll('a, button, .tilt-card, input, textarea');
+  interactives.forEach((el) => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
   });
 }
 
 /**
- * Mobile Navigation Drawer & Hamburger Menu
+ * 3. 3D Card Tilt Effect on Hover
+ */
+function initTiltEffect() {
+  const tiltCards = document.querySelectorAll('.tilt-card');
+
+  tiltCards.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      // Subtle tilt rotation angles
+      const rotateX = ((y - centerY) / centerY) * -5;
+      const rotateY = ((x - centerX) / centerX) * 5;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+    });
+  });
+}
+
+/**
+ * 4. Intersection Observer: Reveal Elements on Scroll
+ */
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  revealElements.forEach((el) => observer.observe(el));
+}
+
+/**
+ * 5. Typing Animation with Natural Dynamic Pacing
+ */
+function initTypingEffect() {
+  const target = document.getElementById('typing-text');
+  if (!target) return;
+
+  const phrases = [
+    'ideas into real software',
+    'complex problems into clean code',
+    'curiosity into high-impact products',
+    'algorithmic logic into fast apps'
+  ];
+
+  let phraseIdx = 0;
+  let charIdx = 0;
+  let isDeleting = false;
+  let delay = 90;
+
+  function tick() {
+    const current = phrases[phraseIdx];
+
+    if (isDeleting) {
+      target.textContent = current.substring(0, charIdx - 1);
+      charIdx--;
+      delay = 45;
+    } else {
+      target.textContent = current.substring(0, charIdx + 1);
+      charIdx++;
+      delay = 90;
+    }
+
+    if (!isDeleting && charIdx === current.length) {
+      delay = 2000; // Pause at completion
+      isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      phraseIdx = (phraseIdx + 1) % phrases.length;
+      delay = 500; // Pause before starting next
+    }
+
+    setTimeout(tick, delay);
+  }
+
+  tick();
+}
+
+/**
+ * 6. Mobile Navigation Drawer
  */
 function initMobileNav() {
   const navToggle = document.getElementById('nav-toggle');
   const navMenu = document.getElementById('nav-menu');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('active');
-      navMenu.classList.toggle('open');
-      document.body.classList.toggle('no-scroll');
-    });
+  if (!navToggle || !navMenu) return;
 
-    // Close menu when a navigation item is clicked
-    navLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('open');
-        document.body.classList.remove('no-scroll');
-      });
-    });
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('active');
+    navMenu.classList.toggle('open');
+    document.body.classList.toggle('no-scroll');
+  });
 
-    // Close menu when clicked outside
-    document.addEventListener('click', (e) => {
-      if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('open')) {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('open');
-        document.body.classList.remove('no-scroll');
-      }
-    });
-  }
-}
-
-/**
- * Smooth Typing Text Effect in Hero
- */
-function initTypingEffect() {
-  const typingElement = document.getElementById('typing-text');
-  if (!typingElement) return;
-
-  const roles = [
-    'new ideas into reality',
-    'innovative software solutions',
-    'creative digital products',
-    'clean & efficient code'
-  ];
-
-  let roleIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typingSpeed = 80;
-
-  function type() {
-    const currentRole = roles[roleIndex];
-
-    if (isDeleting) {
-      typingElement.textContent = currentRole.substring(0, charIndex - 1);
-      charIndex--;
-      typingSpeed = 40;
-    } else {
-      typingElement.textContent = currentRole.substring(0, charIndex + 1);
-      charIndex++;
-      typingSpeed = 80;
-    }
-
-    if (!isDeleting && charIndex === currentRole.length) {
-      typingSpeed = 1800; // Pause at full word
-      isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      roleIndex = (roleIndex + 1) % roles.length;
-      typingSpeed = 400; // Pause before typing next
-    }
-
-    setTimeout(type, typingSpeed);
-  }
-
-  type();
-}
-
-/**
- * Scroll Tracking: Active Navigation & Header Shadow
- */
-function initScrollEffects() {
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const header = document.getElementById('header');
-
-  window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
-
-    // Header subtle shadow on scroll
-    if (header) {
-      if (scrollY > 50) {
-        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-      } else {
-        header.style.boxShadow = 'none';
-      }
-    }
-
-    // Active Navigation Link Highlighting
-    sections.forEach((current) => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 120;
-      const sectionId = current.getAttribute('id');
-
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        navLinks.forEach((link) => {
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
-      }
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      navToggle.classList.remove('active');
+      navMenu.classList.remove('open');
+      document.body.classList.remove('no-scroll');
     });
   });
 }
 
 /**
- * Back to Top Floating Button
+ * 7. Back to Top Button
  */
 function initBackToTop() {
-  const backToTopBtn = document.getElementById('back-to-top');
-  if (!backToTopBtn) return;
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
 
   window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 400) {
-      backToTopBtn.classList.add('show');
+    if (window.pageYOffset > 380) {
+      btn.classList.add('show');
     } else {
-      backToTopBtn.classList.remove('show');
+      btn.classList.remove('show');
     }
   });
 
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
 /**
- * Contact Form Submission Handler (Client-side simulation with mailto option)
+ * 8. Form Submission Handler
  */
 function handleFormSubmit(event) {
   event.preventDefault();
@@ -216,18 +248,17 @@ function handleFormSubmit(event) {
   const message = document.getElementById('message').value;
 
   if (feedback) {
-    feedback.textContent = `Thank you, ${name}! Opening your email client to send your message...`;
-    feedback.className = 'form-feedback success';
+    feedback.textContent = `Thanks, ${name}! Launching your mail client...`;
+    feedback.className = 'form-status success';
     feedback.style.display = 'block';
 
-    // Open mailto link so user can immediately send an email to Yash
-    const mailtoUrl = `mailto:yashbhate60@gmail.com?subject=${encodeURIComponent(
+    const mailto = `mailto:yashbhate60@gmail.com?subject=${encodeURIComponent(
       `Portfolio Inquiry: ${subject}`
     )}&body=${encodeURIComponent(`Hi Yash,\n\n${message}\n\nFrom: ${name} (${email})`)}`;
 
     setTimeout(() => {
-      window.location.href = mailtoUrl;
+      window.location.href = mailto;
       form.reset();
-    }, 1200);
+    }, 1000);
   }
 }
